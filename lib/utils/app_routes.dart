@@ -16,6 +16,7 @@ class AppRoutes {
   static const String root = '/';
   static const String notFound = '/not-found';
   static const String login = 'login';
+  static const String onBoarding = 'onBoarding';
 
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {
@@ -50,5 +51,9 @@ class AppRoutes {
 
   static void openLogin(BuildContext context) {
     openNamed(context, login);
+  }
+
+  static void openOnBoarding(BuildContext context) {
+    openNamed(context, onBoarding);
   }
 }

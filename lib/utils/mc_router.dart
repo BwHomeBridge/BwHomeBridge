@@ -1,4 +1,6 @@
+import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'mc_route_page.dart';
@@ -22,6 +24,11 @@ class McRouter {
       McRoutePage(
         path: '/',
         child: SplashScreen(),
+      ),
+      McRoutePage(
+        name: AppRoutes.onBoarding,
+        path: '/onboarding',
+        child: OnBoardingScreen(),
       ),
     ],
   );

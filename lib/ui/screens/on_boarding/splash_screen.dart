@@ -2,6 +2,7 @@ import 'package:bw_home_bridge/backend/helper_classes/config.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_button.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,9 @@ class SplashScreen extends StatelessWidget {
                         'let’s start',
                         expanded: true,
                         color: McColors.secondary,
-                        onPressed: () {},
+                        onPressed: () {
+                          AppRoutes.openOnBoarding(context);
+                        },
                       ),
                       const McVSpacer(30),
                       const McText.bodyM(

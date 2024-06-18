@@ -38,7 +38,7 @@ class McButton extends StatelessWidget {
     this.minWidth,
     this.leftPadding,
     this.horizontalPadding = 62,
-    this.verticalPadding = 10.5,
+    this.verticalPadding = 5.5,
     this.elevation = 3,
     this.onPressed,
   }) : super(key: key);
