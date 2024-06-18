@@ -29,16 +29,16 @@ class McButton extends StatelessWidget {
     this.leading,
     this.trailing,
     this.color = McColors.primary,
-    this.textColor = McColors.secondary,
+    this.textColor = McColors.white,
     this.textStyle,
     this.expanded = false,
-    this.isRounded = false,
+    this.isRounded = true,
     this.loading = false,
     this.loadingColor = McColors.secondary,
     this.minWidth,
     this.leftPadding,
     this.horizontalPadding = 62,
-    this.verticalPadding = 14.5,
+    this.verticalPadding = 10.5,
     this.elevation = 3,
     this.onPressed,
   }) : super(key: key);
@@ -59,16 +59,12 @@ class McButton extends StatelessWidget {
       minWidth: minWidth ?? (expanded ? double.infinity : null),
       height: 46,
       shape: isRounded
-          ? StadiumBorder(
-              side: BorderSide(
-                color: onPressed != null ? color : color.withOpacity(.5),
-              ),
+          ? const StadiumBorder(
+              side: BorderSide.none,
             )
-          : RoundedRectangleBorder(
-              side: BorderSide(
-                color: onPressed != null ? color : color.withOpacity(.5),
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(4)),
+          : const RoundedRectangleBorder(
+              side: BorderSide.none,
+              borderRadius: BorderRadius.all(Radius.circular(4)),
             ),
       child: loading
           ? Row(

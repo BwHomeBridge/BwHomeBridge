@@ -205,10 +205,10 @@ class McHelpers {
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 2,
-      backgroundColor: McColors.primary2,
+      backgroundColor: McColors.secondary2,
       textColor: McColors.black,
       fontSize: 16.0,
-      webBgColor: McColors.primary2.toString(),
+      webBgColor: McColors.secondary2.toString(),
       webPosition: "center",
     );
   }

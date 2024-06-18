@@ -48,7 +48,7 @@ class _AppState extends State<App> {
         title: 'm',
         locale: const Locale('en', 'US'),
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: McColors.primary2),
+          colorScheme: ColorScheme.fromSeed(seedColor: McColors.primary),
           useMaterial3: true,
           textTheme: GoogleFonts.jostTextTheme(
               // ignore: use_build_context_synchronously
@@ -67,7 +67,7 @@ class _AppState extends State<App> {
             elevation: 50,
           ),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: McColors.primary2,
+            backgroundColor: McColors.secondary2,
             // backgroundColor: Colors.grey[300],
           ),
         ),

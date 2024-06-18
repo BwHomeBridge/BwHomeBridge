@@ -1,207 +1,89 @@
+import 'package:bw_home_bridge/backend/helper_classes/config.dart';
+import 'package:bw_home_bridge/ui/widgets/mc_button.dart';
+import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
+import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
+import 'package:bw_home_bridge/utils/constants.dart';
+import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
           Container(
-            width: 428,
-            height: 915,
-            clipBehavior: Clip.antiAlias,
-            decoration: ShapeDecoration(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/splash_screen_bg.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Container(
+            width: double.infinity,
+            // height: double.infinity,
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment(0.00, -1.00),
-                end: Alignment(0, 1),
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
                 colors: [
-                  Color(0x00FD7575),
-                  Color(0x21961010),
+                  Color(0xB2FD7575),
+                  Color(0xCC961010),
                   Color(0xDB540101),
                   Colors.black
                 ],
               ),
-              shape: RoundedRectangleBorder(
-                side: BorderSide(
-                  width: 8,
-                  strokeAlign: BorderSide.strokeAlignOutside,
-                  color: Color(0xFF191919),
-                ),
-                borderRadius: BorderRadius.circular(30),
-              ),
             ),
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 0,
-                  top: 881,
-                  child: Container(width: 428, height: 34, child: Stack()),
-                ),
-                Positioned(
-                  left: 0,
-                  top: 0,
-                  child: Container(
-                    width: 427,
-                    height: 915,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image:
-                            NetworkImage("https://via.placeholder.com/427x915"),
-                        fit: BoxFit.fill,
+            child: Padding(
+              padding: const EdgeInsets.all(kSpacing),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const McVSpacer(100),
+
+                  ///
+                  const Column(
+                    children: [
+                      Image(
+                        image: AssetImage('assets/images/logo2.png'),
                       ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 0,
-                  top: 0,
-                  child: Container(
-                    width: 440,
-                    height: 915,
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment(0.00, -1.00),
-                        end: Alignment(0, 1),
-                        colors: [
-                          Color(0xB2FD7575),
-                          Color(0xCC961010),
-                          Color(0xDB540101),
-                          Colors.black
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 59,
-                  top: 750,
-                  child: Container(
-                    width: 311,
-                    height: 127,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          child: Container(
-                            width: 311,
-                            height: 50,
-                            decoration: ShapeDecoration(
-                              color: Color(0xFFE89C2D),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 114,
-                          top: 14,
-                          child: Text(
-                            'let’s start',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w700,
-                              height: 0,
-                              letterSpacing: 0.48,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 74,
-                          top: 83,
-                          child: Text(
-                            'Made by HomeBridge',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w700,
-                              height: 0,
-                              letterSpacing: 0.42,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 140,
-                          top: 107,
-                          child: Text(
-                            'v.1.0',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w700,
-                              height: 0,
-                              letterSpacing: 0.39,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 30,
-                  top: 401,
-                  child: SizedBox(
-                    width: 397,
-                    height: 167,
-                    child: Text(
-                      'Botswana Housing Corporation',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
+                      McVSpacer(20),
+                      McText.h1M(
+                        'Botswana Housing\nCorporation',
                         color: Colors.white,
-                        fontSize: 29,
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w600,
-                        height: 0,
+                        textAlign: TextAlign.center,
                       ),
-                    ),
+                    ],
                   ),
-                ),
-                Positioned(
-                  left: 176,
-                  top: 310,
-                  child: Container(
-                    width: 89,
-                    height: 87,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 11, vertical: 16),
-                    clipBehavior: Clip.antiAlias,
-                    decoration: ShapeDecoration(
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50),
+
+                  ///
+                  const McVSpacer(20),
+
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      McButton(
+                        'let’s start',
+                        expanded: true,
+                        color: McColors.secondary,
+                        onPressed: () {},
                       ),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          width: 67,
-                          height: 55,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(
-                                  "https://via.placeholder.com/67x55"),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                      const McVSpacer(30),
+                      const McText.bodyM(
+                        'Made by HomeBridge',
+                        color: Colors.white,
+                      ),
+                      McText.bodyM(
+                        Config.appsettings.version,
+                        color: Colors.white,
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ],
