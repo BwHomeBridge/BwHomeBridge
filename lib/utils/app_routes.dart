@@ -19,7 +19,10 @@ class AppRoutes {
   static const String onBoarding = 'onBoarding';
 
   //
+  static const String dashboard = 'dashboard';
+
   static const String mortgageCalculator = 'mortgageCalculator';
+  static const String reportDesk = 'report-desk';
 
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {

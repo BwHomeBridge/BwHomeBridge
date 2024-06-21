@@ -1,6 +1,9 @@
+import 'package:bw_home_bridge/ui/screens/base/base_screen.dart';
+import 'package:bw_home_bridge/ui/screens/dashboard/dashboard_screen.dart';
 import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculator_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
+import 'package:bw_home_bridge/ui/screens/report_desk/report_desk_screen.dart';
 import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -16,7 +19,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/mortgage-calculator',
+    initialLocation: '/dashboard',
     redirect: (context, state) {
       return null;
     },
@@ -31,9 +34,22 @@ class McRouter {
         child: OnBoardingScreen(),
       ),
       McRoutePage(
-        name: AppRoutes.mortgageCalculator,
-        path: '/mortgage-calculator',
-        child: MortgageCalculatorScreen(),
+        name: 'dashboard',
+        path: '/dashboard',
+        useBaseScreen: true,
+        child: DashboardScreen(),
+        routes: [
+          McRoutePage(
+            name: AppRoutes.mortgageCalculator,
+            path: 'mortgage-calculator',
+            child: MortgageCalculatorScreen(),
+          ),
+          McRoutePage(
+            name: AppRoutes.reportDesk,
+            path: 'report-desk',
+            child: ReportDeskScreen(),
+          ),
+        ],
       ),
     ],
   );

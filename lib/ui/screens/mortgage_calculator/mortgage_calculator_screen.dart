@@ -1,6 +1,5 @@
 import 'package:bw_home_bridge/ui/screens/mortgage_calculator/widgets/payment_preview.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_slider.dart';
-import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text_form_field.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
 import 'package:bw_home_bridge/utils/constants.dart';

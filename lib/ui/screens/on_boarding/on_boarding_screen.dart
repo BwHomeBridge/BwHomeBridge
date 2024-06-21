@@ -1,4 +1,5 @@
 import 'package:bw_home_bridge/ui/screens/on_boarding/widgets/on_boarding_layout.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
@@ -73,6 +74,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 info: pageData.info,
                 activeIndex: page,
                 onNext: () {
+                  if (page == 2) {
+                    AppRoutes.openNamed(context, 'dashboard');
+                    return;
+                  }
                   // if (page < pagesData.length - 1) {
                   liquidController.animateToPage(page: page + 1);
                   // }
