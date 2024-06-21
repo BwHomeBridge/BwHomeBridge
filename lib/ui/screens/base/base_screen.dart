@@ -1,3 +1,4 @@
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -12,20 +13,50 @@ class BaseScreen extends StatefulWidget {
 
 class _BaseScreenState extends State<BaseScreen> {
   int _selectedIndex = 0;
-  bool dashboard = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  active() {
+    if (AppRoutes.isActiveRouteName(context, AppRoutes.home)) {
+      _selectedIndex = 0;
+    }
+    // if (AppRoutes.isActiveRouteName(context, AppRoutes.home)) {
+    //   _selectedIndex = 1;
+    // }
+    if (AppRoutes.isActiveRouteName(context, AppRoutes.dashboard)) {
+      _selectedIndex = 2;
+    }
+    // if (AppRoutes.isActiveRouteName(context, AppRoutes.dashboard)) {
+    //   _selectedIndex = 3;
+    // }
+  }
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    // setState(() {
+    //   _selectedIndex = index;
+    // });
+
+    switch (index) {
+      case 0:
+        AppRoutes.openNamed(context, AppRoutes.home);
+        break;
+      case 2:
+        AppRoutes.openNamed(context, AppRoutes.dashboard);
+        break;
+      default:
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    active();
     return Scaffold(
       appBar: AppBar(
         title: Row(
-          children: [
+          children: const [
             Image(
               image: AssetImage('assets/images/logo.png'),
               width: 55,
@@ -55,7 +86,7 @@ class _BaseScreenState extends State<BaseScreen> {
         notchMargin: 6.0,
         child: BottomNavigationBar(
           elevation: 30,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
