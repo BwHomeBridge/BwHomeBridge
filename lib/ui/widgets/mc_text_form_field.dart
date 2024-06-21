@@ -1,3 +1,5 @@
+import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
+import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,11 +32,11 @@ class McTextFormField extends StatelessWidget {
   const McTextFormField({
     Key? key,
     this.controller,
-    this.fillColor = McColors.secondary,
+    this.fillColor = McColors.secondary2,
     this.hintColor = McColors.lightGrey,
     this.labelColor = McColors.lightGrey,
     this.enabledBorderColor = McColors.lightGrey,
-    this.focusedBorderColor = McColors.primary,
+    this.focusedBorderColor = McColors.secondary,
     this.hintText,
     this.errorText,
     this.surffixIcon,
@@ -54,80 +56,93 @@ class McTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      style: GoogleFonts.jost(
-        textStyle: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-      maxLines: maxLines,
-      initialValue: initialValue,
-      keyboardType: keyboardType,
-      obscureText: obscureText,
-      focusNode: focusNode,
-      controller: controller,
-      onChanged: onChanged,
-      onSaved: onSaved,
-      readOnly: readOnly,
-      validator: validator,
-      onTap: onTap,
-      decoration: InputDecoration(
-        errorText: errorText,
-        contentPadding: const EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
-        prefixIcon: prefixIcon,
-        suffixIcon: surffixIcon,
-        isCollapsed: false,
-        suffixIconColor: McColors.secondary2,
-        prefixIconColor: McColors.secondary2,
-        isDense: false,
-        filled: true,
-        fillColor: fillColor,
-        labelText: labelText ?? hintText,
-        iconColor: McColors.secondary2,
-        suffixStyle: const TextStyle(color: McColors.secondary2),
-        prefixStyle: const TextStyle(color: McColors.secondary2),
-        hintText: hintText,
-        hintStyle: TextStyle(fontSize: 16, color: hintColor),
-        labelStyle: TextStyle(fontSize: 14, color: labelColor),
-        // floatingLabelBehavior: FloatingLabelBehavior.never,
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: enabledBorderColor,
-            width: 1,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        McText(
+          labelText ?? '',
+          style: TextStyle(
+            color: McColors.secondary,
           ),
-          borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-            color: focusedBorderColor,
-            width: 1,
+        McVSpacer(5),
+        TextFormField(
+          style: GoogleFonts.jost(
+            textStyle: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w400,
+            ),
           ),
-          borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
-        ),
-        errorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: McColors.error,
-            width: 1,
+          maxLines: maxLines,
+          initialValue: initialValue,
+          keyboardType: keyboardType,
+          obscureText: obscureText,
+          focusNode: focusNode,
+          controller: controller,
+          onChanged: onChanged,
+          onSaved: onSaved,
+          readOnly: readOnly,
+          validator: validator,
+          onTap: onTap,
+          decoration: InputDecoration(
+            errorText: errorText,
+            contentPadding: const EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+            prefixIcon: prefixIcon,
+            suffixIcon: surffixIcon,
+            isCollapsed: false,
+            suffixIconColor: McColors.secondary2,
+            prefixIconColor: McColors.secondary2,
+            isDense: false,
+            filled: true,
+            fillColor: fillColor,
+            labelText: labelText ?? hintText,
+            iconColor: McColors.secondary2,
+            suffixStyle: const TextStyle(color: McColors.secondary2),
+            prefixStyle: const TextStyle(color: McColors.secondary2),
+            hintText: hintText,
+            hintStyle: TextStyle(fontSize: 16, color: hintColor),
+            labelStyle: TextStyle(fontSize: 14, color: labelColor),
+            floatingLabelBehavior: FloatingLabelBehavior.never,
+            // border: OutlineInputBorder(),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: enabledBorderColor,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: focusedBorderColor,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: McColors.error,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: McColors.error,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
+            ),
+            floatingLabelStyle: MaterialStateTextStyle.resolveWith(
+              (Set<MaterialState> states) {
+                final Color color = states.contains(MaterialState.error)
+                    ? Theme.of(context).colorScheme.error
+                    : McColors.secondary;
+                return TextStyle(color: color, letterSpacing: 1.3);
+              },
+            ),
           ),
-          borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
         ),
-        focusedErrorBorder: OutlineInputBorder(
-          borderSide: const BorderSide(
-            color: McColors.error,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(kTextFormFieldBorderRadius),
-        ),
-        floatingLabelStyle: MaterialStateTextStyle.resolveWith(
-          (Set<MaterialState> states) {
-            final Color color = states.contains(MaterialState.error)
-                ? Theme.of(context).colorScheme.error
-                : McColors.primary;
-            return TextStyle(color: color, letterSpacing: 1.3);
-          },
-        ),
-      ),
+      ],
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculator_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
 import 'package:bw_home_bridge/utils/app_routes.dart';
@@ -15,8 +16,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    // initialLocation: AppRoutes.login,
-
+    initialLocation: '/mortgage-calculator',
     redirect: (context, state) {
       return null;
     },
@@ -29,6 +29,11 @@ class McRouter {
         name: AppRoutes.onBoarding,
         path: '/onboarding',
         child: OnBoardingScreen(),
+      ),
+      McRoutePage(
+        name: AppRoutes.mortgageCalculator,
+        path: '/mortgage-calculator',
+        child: MortgageCalculatorScreen(),
       ),
     ],
   );

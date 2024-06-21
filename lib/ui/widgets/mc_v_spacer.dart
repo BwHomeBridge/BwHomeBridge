@@ -1,7 +1,8 @@
+import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class McVSpacer extends StatelessWidget {
-  const McVSpacer(this.space, {Key? key}) : super(key: key);
+  const McVSpacer([this.space = kSpacing, Key? key]) : super(key: key);
 
   final double space;
   @override

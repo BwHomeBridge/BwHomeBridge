@@ -18,6 +18,9 @@ class AppRoutes {
   static const String login = 'login';
   static const String onBoarding = 'onBoarding';
 
+  //
+  static const String mortgageCalculator = 'mortgageCalculator';
+
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {
     return GoRouterState.of(context).name == routeName;
