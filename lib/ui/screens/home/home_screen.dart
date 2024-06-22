@@ -1,5 +1,4 @@
 import 'package:bw_home_bridge/backend/mock_data/property_mock.dart';
-import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/home/widgets/home_search_f_ilter.dart';
 import 'package:bw_home_bridge/ui/screens/home/widgets/property_card.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';

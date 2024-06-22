@@ -2,7 +2,6 @@ import 'package:animated_card/animated_card.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
-import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 

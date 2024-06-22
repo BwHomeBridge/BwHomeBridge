@@ -17,7 +17,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    // initialLocation: '/home',
+    initialLocation: '/home',
     redirect: (context, state) {
       return null;
     },
