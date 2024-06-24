@@ -7,6 +7,7 @@ import 'package:bw_home_bridge/ui/widgets/mc_icon_button.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_map.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -140,8 +141,10 @@ class ViewPropertyScreen extends StatelessWidget {
                   ),
                   const McHSpacer(kSpacing),
                   McButton(
-                    'Buy',
-                    onPressed: () {},
+                    'Apply',
+                    onPressed: () {
+                      AppRoutes.openNamed(context, AppRoutes.applyFlowPersonal);
+                    },
                   ),
                 ],
               ),

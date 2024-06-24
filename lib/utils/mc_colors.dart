@@ -9,6 +9,8 @@ class McColors {
   static const Color secondary = Color(0xffE89C2D);
   static const Color secondary2 = Color(0xfff6f8fa);
 
+  static const Color orange = Color(0xffDC6141);
+
   static const Color white = Color(0xffFFFFFF);
   static const Color grey = Color(0xff9E9E9E);
   static const Color lightGrey = Color(0xFFCCCCCC);

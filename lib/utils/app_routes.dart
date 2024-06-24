@@ -25,6 +25,11 @@ class AppRoutes {
   static const String mortgageCalculator = 'mortgageCalculator';
   static const String reportDesk = 'report-desk';
 
+  static const String applyFlowPersonal = 'apply-flow-personal';
+  static const String applyFlowEmployment = 'apply-flow-employment';
+  static const String applyFlowFamily = 'apply-flow-family';
+  static const String applyFlowDocs = 'apply-flow-docs';
+
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {
     return GoRouterState.of(context).name == routeName;

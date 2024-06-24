@@ -1,3 +1,7 @@
+import 'package:bw_home_bridge/ui/screens/apply_flow/apply_docs_screen.dart';
+import 'package:bw_home_bridge/ui/screens/apply_flow/apply_employment_screen.dart';
+import 'package:bw_home_bridge/ui/screens/apply_flow/apply_family_screen.dart';
+import 'package:bw_home_bridge/ui/screens/apply_flow/apply_personal_screen.dart';
 import 'package:bw_home_bridge/ui/screens/dashboard/dashboard_screen.dart';
 import 'package:bw_home_bridge/ui/screens/home/home_screen.dart';
 import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculator_screen.dart';
@@ -17,7 +21,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    // initialLocation: '/home',
+    // initialLocation: '/personal',
     redirect: (context, state) {
       return null;
     },
@@ -59,6 +63,34 @@ class McRouter {
         useBaseScreen: true,
         child: HomeScreen(),
         routes: [],
+      ),
+
+      McRoutePage(
+        name: AppRoutes.applyFlowPersonal,
+        path: '/personal',
+        child: ApplyPersonalScreen(),
+        routes: [
+          McRoutePage(
+            name: AppRoutes.applyFlowEmployment,
+            path: 'employment',
+            child: ApplyEmploymentScreen(),
+            routes: [
+              McRoutePage(
+                name: AppRoutes.applyFlowFamily,
+                path: 'family',
+                child: ApplyFamilyScreen(),
+                routes: [
+                  McRoutePage(
+                    name: AppRoutes.applyFlowDocs,
+                    path: 'docs',
+                    child: ApplyDocsScreen(),
+                    routes: [],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     ],
   );

@@ -69,7 +69,5 @@ class HomeCubit extends Cubit<HomeState> {
       );
       propertyMakers.add(marker);
     });
-
-    logger.e(propertyMakers);
   }
 }
