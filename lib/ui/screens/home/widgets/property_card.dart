@@ -48,7 +48,7 @@ class PropertyCard extends StatelessWidget {
                       property.name,
                     ),
                     SizedBox(height: 4),
-                    Text(property.location),
+                    // Flexible(child: Text(property.location.toString())),
                     SizedBox(height: 4),
                     Text('\$${property.price.toStringAsFixed(2)}'),
                   ],

@@ -1,4 +1,6 @@
+import 'package:bw_home_bridge/backend/helper_classes/lat_lng_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 part 'property.freezed.dart';
 part 'property.g.dart';
@@ -8,7 +10,7 @@ class Property with _$Property {
   factory Property({
     required String id,
     required String name,
-    required String location,
+    @LatLngConverter() required LatLng location,
     required double price,
     required List<String> images,
     String? description,

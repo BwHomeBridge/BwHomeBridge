@@ -50,6 +50,8 @@ dependencies:
   liquid_swipe: ^3.1.0
   cached_network_image: ^3.3.1
   animated_card: ^2.0.0
+  flutter_dotenv: ^5.1.0
+  google_maps_flutter: ^2.2.8
 
 dev_dependencies:
   flutter_test:
@@ -80,7 +82,9 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/map/
     - assets/fonts/google_fonts/jost/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

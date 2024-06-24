@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:bw_home_bridge/backend/cubits/auth/auth_cubit.dart';
+import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -32,6 +33,9 @@ class _AppState extends State<App> {
       providers: [
         BlocProvider<AuthCubit>(
           create: (context) => AuthCubit(),
+        ),
+        BlocProvider<HomeCubit>(
+          create: (context) => HomeCubit()..searchProperties(),
         ),
       ],
       child: MaterialApp.router(
