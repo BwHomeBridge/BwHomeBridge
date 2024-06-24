@@ -83,7 +83,7 @@ class _McFileUploaderState extends State<McFileUploader> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: _fileName == null
-                      ? Flexible(child: Text(widget.documentName))
+                      ? Text(widget.documentName)
                       : Row(
                           children: [
                             Icon(Icons.insert_drive_file, color: Colors.orange),

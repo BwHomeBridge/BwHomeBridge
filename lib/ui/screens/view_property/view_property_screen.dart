@@ -143,7 +143,7 @@ class ViewPropertyScreen extends StatelessWidget {
                   McButton(
                     'Apply',
                     onPressed: () {
-                      AppRoutes.openNamed(context, AppRoutes.applyFlowPersonal);
+                      AppRoutes.openApplyFlowPersonal(context);
                     },
                   ),
                 ],

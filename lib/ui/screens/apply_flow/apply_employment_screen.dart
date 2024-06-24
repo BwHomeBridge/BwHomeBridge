@@ -33,7 +33,7 @@ class ApplyEmploymentScreen extends StatelessWidget {
         ),
       ],
       onContinue: () {
-        AppRoutes.openNamed(context, AppRoutes.applyFlowFamily);
+        AppRoutes.openApplyFlowFamily(context);
       },
     );
   }

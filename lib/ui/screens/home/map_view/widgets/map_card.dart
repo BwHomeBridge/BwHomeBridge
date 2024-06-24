@@ -2,6 +2,7 @@ import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -33,11 +34,7 @@ class MapCard extends StatelessWidget {
         }
         return InkWell(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ViewPropertyScreen(property: property),
-                ));
+            AppRoutes.openViewProperty(context, property);
           },
           child: Center(
             child: SizedBox(

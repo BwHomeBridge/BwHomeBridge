@@ -33,7 +33,7 @@ class ApplyPersonalScreen extends StatelessWidget {
         ),
       ],
       onContinue: () {
-        AppRoutes.openNamed(context, AppRoutes.applyFlowEmployment);
+        AppRoutes.openApplyFlowEmployement(context);
       },
     );
   }

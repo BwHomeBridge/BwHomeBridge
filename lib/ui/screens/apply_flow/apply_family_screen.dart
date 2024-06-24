@@ -29,7 +29,7 @@ class ApplyFamilyScreen extends StatelessWidget {
         ),
       ],
       onContinue: () {
-        AppRoutes.openNamed(context, AppRoutes.applyFlowDocs);
+        AppRoutes.openApplyFlowDocs(context);
       },
     );
   }

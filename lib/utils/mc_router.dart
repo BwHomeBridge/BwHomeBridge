@@ -1,3 +1,5 @@
+import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
+import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_docs_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_employment_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_family_screen.dart';
@@ -8,8 +10,13 @@ import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculato
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/report_desk_screen.dart';
+import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dart';
 import 'package:bw_home_bridge/utils/app_routes.dart';
+import 'package:bw_home_bridge/utils/constants.dart';
+import 'package:bw_home_bridge/utils/debugBro.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'mc_route_page.dart';
 
@@ -21,7 +28,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    // initialLocation: '/personal',
+    initialLocation: '/home',
     redirect: (context, state) {
       return null;
     },
@@ -62,29 +69,53 @@ class McRouter {
         path: '/home',
         useBaseScreen: true,
         child: HomeScreen(),
-        routes: [],
-      ),
-
-      McRoutePage(
-        name: AppRoutes.applyFlowPersonal,
-        path: '/personal',
-        child: ApplyPersonalScreen(),
         routes: [
           McRoutePage(
-            name: AppRoutes.applyFlowEmployment,
-            path: 'employment',
-            child: ApplyEmploymentScreen(),
+            name: AppRoutes.viewPropert,
+            path: 'property/:$kPropertyId',
+            useBaseScreen: false,
+            builder: (context, state) {
+              Property? property;
+              if (state.extra != null) {
+                property = state.extra as Property;
+              } else {
+                context.read<HomeCubit>().state.maybeWhen(
+                      loaded: (properties, viewType) {
+                        property = properties.firstWhereOrNull(
+                          (p) => p.id == state.pathParameters[kPropertyId],
+                        );
+                      },
+                      orElse: () {},
+                    );
+              }
+
+              return ViewPropertyScreen(property: property!);
+            },
             routes: [
               McRoutePage(
-                name: AppRoutes.applyFlowFamily,
-                path: 'family',
-                child: ApplyFamilyScreen(),
+                name: AppRoutes.applyFlowPersonal,
+                path: 'apply/personal',
+                child: ApplyPersonalScreen(),
                 routes: [
                   McRoutePage(
-                    name: AppRoutes.applyFlowDocs,
-                    path: 'docs',
-                    child: ApplyDocsScreen(),
-                    routes: [],
+                    name: AppRoutes.applyFlowEmployment,
+                    path: 'employment',
+                    child: ApplyEmploymentScreen(),
+                    routes: [
+                      McRoutePage(
+                        name: AppRoutes.applyFlowFamily,
+                        path: 'family',
+                        child: ApplyFamilyScreen(),
+                        routes: [
+                          McRoutePage(
+                            name: AppRoutes.applyFlowDocs,
+                            path: 'docs',
+                            child: ApplyDocsScreen(),
+                            routes: [],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
               ),

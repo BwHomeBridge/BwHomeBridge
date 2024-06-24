@@ -2,3 +2,5 @@ const double kDevicePadding = 15;
 const double kTextFormFieldBorderRadius = 5;
 
 const double kSpacing = 20;
+
+const String kPropertyId = 'propertyId';

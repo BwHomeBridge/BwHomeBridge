@@ -2,8 +2,10 @@ import 'package:animated_card/animated_card.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class PropertyCard extends StatelessWidget {
   final Property property;
@@ -14,11 +16,7 @@ class PropertyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ViewPropertyScreen(property: property),
-            ));
+        AppRoutes.openViewProperty(context, property);
       },
       child: AnimatedCard(
         direction: AnimatedCardDirection.bottom,

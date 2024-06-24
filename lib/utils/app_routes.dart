@@ -1,3 +1,5 @@
+import 'package:bw_home_bridge/backend/models/property.dart';
+import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,6 +23,8 @@ class AppRoutes {
   //
   static const String dashboard = 'dashboard';
   static const String home = 'home';
+
+  static const String viewPropert = 'view-property';
 
   static const String mortgageCalculator = 'mortgageCalculator';
   static const String reportDesk = 'report-desk';
@@ -53,11 +57,13 @@ class AppRoutes {
     String name, {
     Map<String, String> pathParameters = const <String, String>{},
     Map<String, String> queryParameters = const <String, String>{},
+    Object? data,
   }) {
     context.goNamed(
       name,
       pathParameters: pathParameters,
       queryParameters: queryParameters,
+      extra: data,
     );
   }
 
@@ -67,5 +73,50 @@ class AppRoutes {
 
   static void openOnBoarding(BuildContext context) {
     openNamed(context, onBoarding);
+  }
+
+  static void openViewProperty(BuildContext context, Property property) {
+    openNamed(
+      context,
+      viewPropert,
+      pathParameters: {kPropertyId: property.id},
+      data: property,
+    );
+  }
+
+  static void openApplyFlowPersonal(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      applyFlowPersonal,
+      pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openApplyFlowEmployement(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      applyFlowEmployment,
+      pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openApplyFlowFamily(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      applyFlowFamily,
+      pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openApplyFlowDocs(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      applyFlowDocs,
+      pathParameters: {kPropertyId: propertyId},
+    );
   }
 }
