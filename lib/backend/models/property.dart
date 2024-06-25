@@ -18,12 +18,17 @@ List<Map<String, dynamic>> serializePropertyList(List<Property> properties) =>
 @freezed
 class Property with _$Property {
   factory Property({
-    required String id,
-    required String name,
+    required int id,
+    required String title,
     @LatLngConverter() required LatLng location,
-    required double price,
-    required List<String> images,
+    required String price,
+    List<String>? images,
+    required String photo,
     String? description,
+    String? listingType,
+    String? propertyType,
+    bool? isForSale,
+
   }) = _Property;
 
   factory Property.fromJson(Map<String, dynamic> json) =>

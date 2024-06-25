@@ -60,9 +60,9 @@ class HomeCubit extends Cubit<HomeState> {
     propertyMakers.clear();
 
     await Future.forEach(properties, (property) async {
-      var icon = await homeMapService.createCustomMarker(property.images.first);
+      var icon = await homeMapService.createCustomMarker(property.photo);
       var marker = Marker(
-        markerId: MarkerId(property.id),
+        markerId: MarkerId(property.id.toString()),
         position: property.location,
         icon: icon,
         onTap: () {},

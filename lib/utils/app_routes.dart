@@ -91,7 +91,7 @@ class AppRoutes {
     openNamed(
       context,
       viewPropert,
-      pathParameters: {kPropertyId: property.id},
+      pathParameters: {kPropertyId: property.id.toString()},
       data: property,
     );
   }

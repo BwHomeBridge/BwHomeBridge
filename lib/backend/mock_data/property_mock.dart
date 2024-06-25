@@ -28,13 +28,13 @@ LatLng getRandomLocation() {
 List<Property> generateMockProperties(int count) {
   return List<Property>.generate(count, (index) {
     return Property(
-      id: index.toString(),
-      name: 'Property ${index + 1}',
+      id: index,
+      title: 'Property ${index + 1}',
       location: getRandomLocation(),
-      price: (random.nextDouble() * 10000).roundToDouble(),
+      price: (random.nextDouble() * 10000).roundToDouble().toString(),
       description:
           'Discover your dream home with this stunning 4-bedroom, 3-bathroom residence nestled in a highly sought-after neighborhood. Boasting 2,500 square feet of meticulously designed living space, this home perfectly blends modern comforts with timeless elegance.',
-      images: getRandomImages(),
+      images: getRandomImages(), photo: '',
     );
   });
 }

@@ -1,17 +1,17 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-class LatLngConverter implements JsonConverter<LatLng, Map<String, double>> {
+class LatLngConverter implements JsonConverter<LatLng, Map<String, dynamic>> {
   const LatLngConverter();
 
   @override
-  LatLng fromJson(Map<String, double> json) {
-    return LatLng(json['latitude']!, json['longitude']!);
+  LatLng fromJson(Map<String, dynamic> json) {
+    return LatLng(json['lat']!, json['lng']!);
   }
 
   @override
   Map<String, double> toJson(LatLng instance) => <String, double>{
-        'latitude': instance.latitude,
-        'longitude': instance.longitude,
+        'lat': instance.latitude,
+        'lng': instance.longitude,
       };
 }

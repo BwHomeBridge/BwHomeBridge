@@ -1,4 +1,3 @@
-import 'package:bw_home_bridge/backend/mock_data/property_mock.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/utils/debugBro.dart';
 

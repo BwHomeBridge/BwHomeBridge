@@ -60,7 +60,7 @@ class MapCard extends StatelessWidget {
                 child: Hero(
                   tag: property.id,
                   child: CachedNetworkImage(
-                    imageUrl: property.images[0],
+                    imageUrl: property.photo,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -87,11 +87,11 @@ class MapCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   McText.h3M(
-                    property.name,
+                    property.title,
                     color: McColors.white,
                   ),
                   McText.body(
-                    'P' + property.price.toStringAsFixed(2),
+                    'P ${property.price}',
                     color: McColors.white,
                   )
                 ],

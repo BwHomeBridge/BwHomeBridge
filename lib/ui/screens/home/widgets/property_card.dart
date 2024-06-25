@@ -31,7 +31,7 @@ class PropertyCard extends StatelessWidget {
                   child: Hero(
                     tag: property.id,
                     child: CachedNetworkImage(
-                      imageUrl: property.images[0],
+                      imageUrl: property.photo,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -43,12 +43,12 @@ class PropertyCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     McText.bodyM(
-                      property.name,
+                      property.title,
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     // Flexible(child: Text(property.location.toString())),
-                    SizedBox(height: 4),
-                    Text('\$${property.price.toStringAsFixed(2)}'),
+                    const SizedBox(height: 4),
+                    Text('\$${property.price}'),
                   ],
                 ),
               ),

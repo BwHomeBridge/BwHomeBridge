@@ -41,7 +41,7 @@ class ViewPropertyScreen extends StatelessWidget {
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: CachedNetworkImageProvider(
-                                property.images.first),
+                                property.photo),
                           ),
                         ),
                         child: Column(
@@ -98,7 +98,7 @@ class ViewPropertyScreen extends StatelessWidget {
                             ),
                             markers: <Marker>{
                               Marker(
-                                markerId: MarkerId(property.id),
+                                markerId: MarkerId(property.id.toString()),
                                 position: property.location,
                               )
                             },
