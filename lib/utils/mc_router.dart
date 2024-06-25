@@ -5,6 +5,7 @@ import 'package:bw_home_bridge/ui/screens/apply_flow/apply_employment_screen.dar
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_family_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_personal_screen.dart';
 import 'package:bw_home_bridge/ui/screens/dashboard/dashboard_screen.dart';
+import 'package:bw_home_bridge/ui/screens/faq/faq_screen.dart';
 import 'package:bw_home_bridge/ui/screens/home/home_screen.dart';
 import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculator_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
@@ -28,7 +29,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/home',
+    initialLocation: '/dashboard/faq',
     redirect: (context, state) {
       return null;
     },
@@ -59,6 +60,11 @@ class McRouter {
             name: AppRoutes.reportDesk,
             path: 'report-desk',
             child: ReportDeskScreen(),
+          ),
+          McRoutePage(
+            name: AppRoutes.faq,
+            path: 'faq',
+            child: FaqScreen(),
           ),
         ],
       ),

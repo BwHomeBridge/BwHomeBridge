@@ -24,6 +24,8 @@ class AppRoutes {
   static const String dashboard = 'dashboard';
   static const String home = 'home';
 
+  static const String faq = 'faq';
+
   static const String viewPropert = 'view-property';
 
   static const String mortgageCalculator = 'mortgageCalculator';

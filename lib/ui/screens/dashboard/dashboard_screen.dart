@@ -36,6 +36,15 @@ class DashboardScreen extends StatelessWidget {
                     );
                   },
                 ),
+                DashBtn(
+                  'F.A.Q',
+                  onPressed: () {
+                    AppRoutes.openNamed(
+                      context,
+                      AppRoutes.faq,
+                    );
+                  },
+                ),
               ],
             ),
           ],
