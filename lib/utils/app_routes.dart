@@ -39,6 +39,8 @@ class AppRoutes {
 
   static const String propertyChat = 'property-chat';
 
+  static const String issueLocation = 'issue-location';
+
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {
     return GoRouterState.of(context).name == routeName;

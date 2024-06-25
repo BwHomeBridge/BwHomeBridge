@@ -11,6 +11,7 @@ import 'package:bw_home_bridge/ui/screens/home/home_screen.dart';
 import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculator_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
+import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_location/issue_location_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/report_desk_screen.dart';
 import 'package:bw_home_bridge/ui/screens/tenders/tenders_screen.dart';
 import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dart';
@@ -31,7 +32,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/home',
+    initialLocation: '/dashboard/report-desk',
     redirect: (context, state) {
       return null;
     },
@@ -59,10 +60,16 @@ class McRouter {
             child: MortgageCalculatorScreen(),
           ),
           McRoutePage(
-            name: AppRoutes.reportDesk,
-            path: 'report-desk',
-            child: ReportDeskScreen(),
-          ),
+              name: AppRoutes.reportDesk,
+              path: 'report-desk',
+              child: ReportDeskScreen(),
+              routes: [
+                McRoutePage(
+                  name: AppRoutes.issueLocation,
+                  path: 'issue-location',
+                  child: IssueLocationScreen(),
+                ),
+              ]),
           McRoutePage(
             name: AppRoutes.faq,
             path: 'faq',
