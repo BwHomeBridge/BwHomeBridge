@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'backend/di/di.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -20,6 +22,8 @@ void main() async {
   });
 
   GoogleFonts.config.allowRuntimeFetching = false;
+
+  AppConfig.configureDependency();
 
   runApp(App(currentUrl: currentUrl));
 }

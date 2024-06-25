@@ -1,7 +1,14 @@
 import 'package:bw_home_bridge/backend/mock_data/property_mock.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
+import 'package:bw_home_bridge/utils/debugBro.dart';
+
+import '../api/property_remote_datasource.dart';
 
 class PropertyRepository {
+  final PropertyRemoteDatasource _propertyRemoteDatasource;
+
+  PropertyRepository(this._propertyRemoteDatasource);
+
   Future<List<Property>> searchProperties({
     String? location,
     double? minPrice,
@@ -9,8 +16,20 @@ class PropertyRepository {
     int? minBedrooms,
     int? maxBedrooms,
   }) async {
-    await Future.delayed(Duration(seconds: 2));
-    var propertyList = generateMockProperties(100);
-    return propertyList;
+   try {
+     final properties = await _propertyRemoteDatasource.getProperties(
+       location: location,
+       minPrice: minPrice,
+       maxPrice: maxPrice,
+       minBedrooms: minBedrooms,
+       maxBedrooms: maxBedrooms,
+     );
+     logger.i(properties);
+     return properties;
+   }
+    catch (e) {
+     logger.e(e);
+     return [];
+    }
   }
 }

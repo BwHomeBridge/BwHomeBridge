@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:bw_home_bridge/backend/di/di.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/backend/repositories/property_repo.dart';
 import 'package:bw_home_bridge/backend/serivces/home_map_service.dart';
-import 'package:bw_home_bridge/utils/debugBro.dart';
 import 'package:bw_home_bridge/utils/enums.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -11,7 +11,7 @@ part 'home_state.dart';
 part 'home_cubit.freezed.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  final PropertyRepository repository = PropertyRepository();
+  final PropertyRepository repository = getInstance<PropertyRepository>();
   HomeMapService homeMapService = HomeMapService();
 
   Set<Marker> propertyMakers = <Marker>{};

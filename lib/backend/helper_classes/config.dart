@@ -1,4 +1,7 @@
+
 library config;
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
 
 class Config {
   static AppSettings get appsettings => AppSettings();
@@ -11,8 +14,10 @@ class AppSettings {
 }
 
 class EndPoints {
-  final String dev = 'https://127.0.0.1/';
-  final String test = 'https://127.0.0.1/';
-  final String production = 'https://127.0.0.1/';
+  final String dev = dotenv.get('DEV_HOST_URL');
+  final String test = dotenv.maybeGet('TEST_HOST_URL')!;
+  final String production = dotenv.get('LIVE_HOST_URL');
   String get active => dev;
 }
+
+

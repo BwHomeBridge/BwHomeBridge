@@ -5,6 +5,16 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 part 'property.freezed.dart';
 part 'property.g.dart';
 
+Property deserializeProperty(Map<String, dynamic> map) => Property.fromJson(map);
+
+Map<String, dynamic> serializeProperty(Property property) => property.toJson();
+
+List<Property> deserializePropertyList(List<Map<String, dynamic>> json) =>
+    json.map((e) => Property.fromJson(e)).toList();
+
+List<Map<String, dynamic>> serializePropertyList(List<Property> properties) =>
+    properties.map((e) => e.toJson()).toList();
+
 @freezed
 class Property with _$Property {
   factory Property({

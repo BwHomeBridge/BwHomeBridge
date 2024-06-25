@@ -21,8 +21,8 @@ class HomeScreen extends StatelessWidget {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return state.when(
-          initial: () => Center(child: Text('Enter search criteria')),
-          loading: () => Center(child: CircularProgressIndicator()),
+          initial: () => const Center(child: Text('Enter search criteria')),
+          loading: () => const Center(child: CircularProgressIndicator()),
           loaded: (properties, viewType) {
             return viewType == ViewType.mapView
                 ? HomeMapViewScreen(properties: properties)

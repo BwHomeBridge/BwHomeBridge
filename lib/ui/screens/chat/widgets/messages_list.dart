@@ -1,19 +1,21 @@
 import 'package:bw_home_bridge/backend/cubits/chat/chat_cubit.dart';
 import 'package:bw_home_bridge/backend/models/message.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
-import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:bw_home_bridge/utils/extentions/datetime_extentions.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 class MessagesList extends StatelessWidget {
+  const MessagesList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ChatCubit, ChatState>(
       builder: (context, state) {
         if (state.isLoading) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         final messages = state.messages.reversed.toList();
@@ -50,7 +52,7 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       // padding: EdgeInsets.symmetric(
       //   horizontal: 25,
       // ),
@@ -65,7 +67,7 @@ class MessageBubble extends StatelessWidget {
                 : MainAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 decoration: BoxDecoration(
                   color: _isFromCurrentUser
                       ? McColors.secondary.withOpacity(.8)
@@ -78,7 +80,7 @@ class MessageBubble extends StatelessWidget {
           ),
           McText(
             message.timestamp.toHourMinutes(),
-            style: TextStyle(fontSize: 10),
+            style: const TextStyle(fontSize: 10),
           )
         ],
       ),
