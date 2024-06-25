@@ -4,6 +4,7 @@ import 'package:bw_home_bridge/ui/screens/apply_flow/apply_docs_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_employment_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_family_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_personal_screen.dart';
+import 'package:bw_home_bridge/ui/screens/chat/chat_screen.dart';
 import 'package:bw_home_bridge/ui/screens/dashboard/dashboard_screen.dart';
 import 'package:bw_home_bridge/ui/screens/faq/faq_screen.dart';
 import 'package:bw_home_bridge/ui/screens/home/home_screen.dart';
@@ -30,7 +31,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/dashboard/tenders',
+    initialLocation: '/home',
     redirect: (context, state) {
       return null;
     },
@@ -130,6 +131,19 @@ class McRouter {
                     ],
                   ),
                 ],
+              ),
+
+              ///
+              McRoutePage(
+                name: AppRoutes.propertyChat,
+                path: 'property-chat',
+                builder: (context, state) {
+                  final propertyId = state.pathParameters[kPropertyId];
+
+                  return ChatScreen(
+                    propertyId: propertyId!,
+                  );
+                },
               ),
             ],
           ),

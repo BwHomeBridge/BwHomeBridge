@@ -1,6 +1,7 @@
 import 'package:animated_card/animated_card.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/view_property/widgets/amenties_section.dart';
+import 'package:bw_home_bridge/ui/screens/view_property/widgets/list_agent_section.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_button.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_h_spacer.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_icon_button.dart';
@@ -71,6 +72,10 @@ class ViewPropertyScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            const McVSpacer(),
+                            ListAgentSection(
+                              property: property,
+                            ),
                             const McVSpacer(),
                             const McText.h3M('Gaborone'),
                             const McText.body('Phase 2'),

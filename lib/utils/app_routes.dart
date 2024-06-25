@@ -37,6 +37,8 @@ class AppRoutes {
   static const String applyFlowFamily = 'apply-flow-family';
   static const String applyFlowDocs = 'apply-flow-docs';
 
+  static const String propertyChat = 'property-chat';
+
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {
     return GoRouterState.of(context).name == routeName;
@@ -119,6 +121,15 @@ class AppRoutes {
     openNamed(
       context,
       applyFlowDocs,
+      pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openPropertyUserChat(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      propertyChat,
       pathParameters: {kPropertyId: propertyId},
     );
   }

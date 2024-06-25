@@ -5,4 +5,9 @@ extension DateTimeExtensions on DateTime {
     final DateFormat formatter = DateFormat('d MMMM y');
     return formatter.format(this);
   }
+
+  String toHourMinutes() {
+    final DateFormat formatter = DateFormat('HH:mm');
+    return formatter.format(this);
+  }
 }
