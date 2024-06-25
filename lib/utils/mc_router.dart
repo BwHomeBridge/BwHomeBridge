@@ -121,7 +121,7 @@ class McRouter {
                 context.read<HomeCubit>().state.maybeWhen(
                       loaded: (properties, viewType) {
                         property = properties.firstWhereOrNull(
-                          (p) => p.id == state.pathParameters[kPropertyId],
+                          (p) => p.id.toString() == state.pathParameters[kPropertyId],
                         );
                       },
                       orElse: () {},
