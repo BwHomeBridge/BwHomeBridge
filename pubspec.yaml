@@ -54,6 +54,7 @@ dependencies:
   google_maps_flutter: ^2.2.8
   file_picker: ^8.0.5
   html: ^0.15.4
+  flip_card: ^0.7.0
 
 dev_dependencies:
   flutter_test:

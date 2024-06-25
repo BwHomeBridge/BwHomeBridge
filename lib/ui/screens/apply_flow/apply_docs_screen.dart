@@ -2,6 +2,7 @@ import 'package:bw_home_bridge/ui/screens/apply_flow/apply_flow_base.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_file_uploader.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -43,7 +44,7 @@ class ApplyDocsScreen extends StatelessWidget {
         ),
       ],
       onContinue: () {
-        // AppRoutes.openNamed(context, AppRoutes.applyFlowEmployment);
+        AppRoutes.openApplyFlowPayment(context);
       },
     );
   }

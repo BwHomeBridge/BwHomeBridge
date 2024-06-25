@@ -9,8 +9,8 @@ import 'package:bw_home_bridge/utils/extentions/datetime_extentions.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 
-class IssueReportSuccessScreen extends StatelessWidget {
-  const IssueReportSuccessScreen({super.key});
+class PaymentSuccessScreen extends StatelessWidget {
+  const PaymentSuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,21 +28,19 @@ class IssueReportSuccessScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     McText.h2M(
-                      'Request successful',
+                      'Payment successful',
                     ),
                     McVSpacer(),
                     McTitleValue(
-                      title: 'Request #no',
-                      value: '123',
+                      title: 'Payment ID: ',
+                      value: '09113056',
                     ),
                     McTitleValue(
-                      title: 'Request Date',
+                      title: 'Payment Date',
                       value: DateTime.now().toDayMonthYear(),
                     ),
-                    McTitleValue(
-                      title: 'Estimated Response',
-                      value: '2 Days',
-                    ),
+                    McText.body(
+                        'A confirmation email will\nbe sent to you shortly.'),
                   ],
                 ),
               ),
@@ -53,7 +51,7 @@ class IssueReportSuccessScreen extends StatelessWidget {
               color: McColors.black,
               expanded: true,
               onPressed: () {
-                AppRoutes.openNamed(context, AppRoutes.reportDesk);
+                AppRoutes.openNamed(context, AppRoutes.home);
               },
             ),
           ],

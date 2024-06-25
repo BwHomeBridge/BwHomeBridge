@@ -11,6 +11,8 @@ import 'package:bw_home_bridge/ui/screens/home/home_screen.dart';
 import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculator_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
+import 'package:bw_home_bridge/ui/screens/payment_flow/payment_screen.dart';
+import 'package:bw_home_bridge/ui/screens/payment_flow/payment_success_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_details/issue_details_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_location/issue_location_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_report_success/issue_report_success_screen.dart';
@@ -34,8 +36,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation:
-        '/dashboard/report-desk/issue-location/issue-details/issue-report-success',
+    // initialLocation: '/dashboard',
     redirect: (context, state) {
       return null;
     },
@@ -149,7 +150,21 @@ class McRouter {
                             name: AppRoutes.applyFlowDocs,
                             path: 'docs',
                             child: ApplyDocsScreen(),
-                            routes: [],
+                            routes: [
+                              McRoutePage(
+                                name: AppRoutes.applyFlowPayment,
+                                path: 'payment',
+                                child: PaymentScreen(),
+                                routes: [
+                                  McRoutePage(
+                                    name: AppRoutes.applyFlowPaymentSuccess,
+                                    path: 'sucess',
+                                    child: PaymentSuccessScreen(),
+                                    routes: [],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),

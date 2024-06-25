@@ -37,6 +37,9 @@ class AppRoutes {
   static const String applyFlowFamily = 'apply-flow-family';
   static const String applyFlowDocs = 'apply-flow-docs';
 
+  static const String applyFlowPayment = 'apply-flow-payment';
+  static const String applyFlowPaymentSuccess = 'apply-flow-payment-sucess';
+
   static const String propertyChat = 'property-chat';
 
   static const String issueLocation = 'issue-location';
@@ -125,6 +128,24 @@ class AppRoutes {
     openNamed(
       context,
       applyFlowDocs,
+      pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openApplyFlowPayment(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      applyFlowPayment,
+      pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openApplyFlowPaymentSuccess(BuildContext context) {
+    var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      applyFlowPaymentSuccess,
       pathParameters: {kPropertyId: propertyId},
     );
   }
