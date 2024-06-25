@@ -5,6 +5,7 @@ import 'package:bw_home_bridge/ui/widgets/mc_h_spacer.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_icon_button.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,9 @@ class IssueLocationScreen extends StatelessWidget {
                     'Continue',
                     expanded: true,
                     color: McColors.black,
-                    onPressed: () {},
+                    onPressed: () {
+                      AppRoutes.openNamed(context, AppRoutes.issueDetails);
+                    },
                   ),
                 ),
               ],

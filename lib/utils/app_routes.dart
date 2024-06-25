@@ -40,6 +40,8 @@ class AppRoutes {
   static const String propertyChat = 'property-chat';
 
   static const String issueLocation = 'issue-location';
+  static const String issueDetails = 'issue-details';
+  static const String issueReportSuccess = 'issue-report-success';
 
   /// DO NOT USE >> UNRELIABLE
   static bool isActiveRouteName(BuildContext context, String routeName) {
