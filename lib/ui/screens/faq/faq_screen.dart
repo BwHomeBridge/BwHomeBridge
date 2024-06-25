@@ -6,7 +6,6 @@ import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class FaqScreen extends StatelessWidget {
   const FaqScreen({super.key});
@@ -30,7 +29,9 @@ class FaqScreen extends StatelessWidget {
                     children: [
                       McVSpacer(),
                       McIconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                       ),
                       McVSpacer(),
                       McText(

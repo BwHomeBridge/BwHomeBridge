@@ -25,6 +25,7 @@ class AppRoutes {
   static const String home = 'home';
 
   static const String faq = 'faq';
+  static const String tenders = 'tenders';
 
   static const String viewPropert = 'view-property';
 

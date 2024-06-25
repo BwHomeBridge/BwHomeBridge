@@ -11,6 +11,7 @@ import 'package:bw_home_bridge/ui/screens/mortgage_calculator/mortgage_calculato
 import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/report_desk_screen.dart';
+import 'package:bw_home_bridge/ui/screens/tenders/tenders_screen.dart';
 import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dart';
 import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
@@ -29,7 +30,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/dashboard/faq',
+    initialLocation: '/dashboard/tenders',
     redirect: (context, state) {
       return null;
     },
@@ -65,6 +66,11 @@ class McRouter {
             name: AppRoutes.faq,
             path: 'faq',
             child: FaqScreen(),
+          ),
+          McRoutePage(
+            name: AppRoutes.tenders,
+            path: 'tenders',
+            child: TendersScreen(),
           ),
         ],
       ),

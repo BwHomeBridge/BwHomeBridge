@@ -45,6 +45,15 @@ class DashboardScreen extends StatelessWidget {
                     );
                   },
                 ),
+                DashBtn(
+                  'Tenders',
+                  onPressed: () {
+                    AppRoutes.openNamed(
+                      context,
+                      AppRoutes.tenders,
+                    );
+                  },
+                ),
               ],
             ),
           ],

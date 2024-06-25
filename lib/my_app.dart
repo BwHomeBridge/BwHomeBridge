@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:bw_home_bridge/backend/cubits/auth/auth_cubit.dart';
 import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
+import 'package:bw_home_bridge/backend/cubits/tender/tender_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,6 +37,9 @@ class _AppState extends State<App> {
         ),
         BlocProvider<HomeCubit>(
           create: (context) => HomeCubit()..searchProperties(),
+        ),
+        BlocProvider<TenderCubit>(
+          create: (context) => TenderCubit()..fetchTenders(),
         ),
       ],
       child: MaterialApp.router(
