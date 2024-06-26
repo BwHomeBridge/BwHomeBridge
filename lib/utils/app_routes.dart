@@ -24,6 +24,9 @@ class AppRoutes {
   static const String dashboard = 'dashboard';
   static const String home = 'home';
 
+  static const String profile = 'profile';
+  static const String myProperties = 'myProperties';
+
   static const String faq = 'faq';
   static const String tenders = 'tenders';
 

@@ -13,6 +13,8 @@ import 'package:bw_home_bridge/ui/screens/on_boarding/on_boarding_screen.dart';
 import 'package:bw_home_bridge/ui/screens/on_boarding/splash_screen.dart';
 import 'package:bw_home_bridge/ui/screens/payment_flow/payment_screen.dart';
 import 'package:bw_home_bridge/ui/screens/payment_flow/payment_success_screen.dart';
+import 'package:bw_home_bridge/ui/screens/profile/my_properties/my_properties_screen.dart';
+import 'package:bw_home_bridge/ui/screens/profile/profile_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_details/issue_details_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_location/issue_location_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_report_success/issue_report_success_screen.dart';
@@ -36,7 +38,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    initialLocation: '/home',
+    initialLocation: '/profile',
     redirect: (context, state) {
       return null;
     },
@@ -98,6 +100,21 @@ class McRouter {
             name: AppRoutes.tenders,
             path: 'tenders',
             child: TendersScreen(),
+          ),
+        ],
+      ),
+
+      /// profile
+      McRoutePage(
+        name: AppRoutes.profile,
+        path: '/profile',
+        useBaseScreen: true,
+        child: ProfileScreen(),
+        routes: [
+          McRoutePage(
+            name: AppRoutes.myProperties,
+            path: 'my-properties',
+            child: MyPropertiesScreen(),
           ),
         ],
       ),

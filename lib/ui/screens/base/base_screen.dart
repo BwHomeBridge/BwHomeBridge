@@ -30,9 +30,9 @@ class _BaseScreenState extends State<BaseScreen> {
     if (AppRoutes.isActiveRouteName(context, AppRoutes.dashboard)) {
       _selectedIndex = 1;
     }
-    // if (AppRoutes.isActiveRouteName(context, AppRoutes.dashboard)) {
-    //   _selectedIndex = 3;
-    // }
+    if (AppRoutes.isActiveRouteName(context, AppRoutes.profile)) {
+      _selectedIndex = 2;
+    }
   }
 
   void _onItemTapped(int index) {
@@ -46,6 +46,9 @@ class _BaseScreenState extends State<BaseScreen> {
         break;
       case 1:
         AppRoutes.openNamed(context, AppRoutes.dashboard);
+        break;
+      case 2:
+        AppRoutes.openNamed(context, AppRoutes.profile);
         break;
       default:
     }
