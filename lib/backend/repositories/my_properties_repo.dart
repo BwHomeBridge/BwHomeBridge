@@ -1,3 +1,4 @@
+import 'package:bw_home_bridge/backend/models/rent_payment.dart';
 import 'package:bw_home_bridge/backend/models/user_property.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -23,5 +24,16 @@ final List<UserProperty> _properties = [
     listingType: 'Sale',
     propertyType: 'House',
     isForSale: true,
+    rentPaymentHistory: [
+      RentPayment(
+          id: 1,
+          amount: 1500.0,
+          date: DateTime.now().subtract(Duration(days: 30))),
+      RentPayment(
+          id: 2,
+          amount: 1500.0,
+          date: DateTime.now().subtract(Duration(days: 60))),
+    ],
+    nextRentDueDate: DateTime.now().add(Duration(days: 10)),
   ),
 ];

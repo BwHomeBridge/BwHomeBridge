@@ -2,6 +2,7 @@ import 'package:bw_home_bridge/backend/models/user_property.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_container.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
+import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyPropertyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        //
+        AppRoutes.openViewMyProperty(context, property);
       },
       child: McContainer(
         child: Column(

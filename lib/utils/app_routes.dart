@@ -1,4 +1,5 @@
 import 'package:bw_home_bridge/backend/models/property.dart';
+import 'package:bw_home_bridge/backend/models/user_property.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -26,6 +27,7 @@ class AppRoutes {
 
   static const String profile = 'profile';
   static const String myProperties = 'myProperties';
+  static const String viewMyProperty = 'viewMyProperty';
 
   static const String faq = 'faq';
   static const String tenders = 'tenders';
@@ -159,6 +161,17 @@ class AppRoutes {
       context,
       propertyChat,
       pathParameters: {kPropertyId: propertyId},
+    );
+  }
+
+  static void openViewMyProperty(
+      BuildContext context, UserProperty userProperty) {
+    // var propertyId = getParam(context, kPropertyId)!;
+    openNamed(
+      context,
+      viewMyProperty,
+      data: userProperty,
+      pathParameters: {kPropertyId: userProperty.id.toString()},
     );
   }
 }

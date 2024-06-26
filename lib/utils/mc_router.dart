@@ -1,5 +1,6 @@
 import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
+import 'package:bw_home_bridge/backend/models/user_property.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_docs_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_employment_screen.dart';
 import 'package:bw_home_bridge/ui/screens/apply_flow/apply_family_screen.dart';
@@ -15,6 +16,7 @@ import 'package:bw_home_bridge/ui/screens/payment_flow/payment_screen.dart';
 import 'package:bw_home_bridge/ui/screens/payment_flow/payment_success_screen.dart';
 import 'package:bw_home_bridge/ui/screens/profile/my_properties/my_properties_screen.dart';
 import 'package:bw_home_bridge/ui/screens/profile/profile_screen.dart';
+import 'package:bw_home_bridge/ui/screens/profile/view_my_property/view_my_property_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_details/issue_details_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_location/issue_location_screen.dart';
 import 'package:bw_home_bridge/ui/screens/report_desk/issue_flow/issue_report_success/issue_report_success_screen.dart';
@@ -112,10 +114,22 @@ class McRouter {
         child: ProfileScreen(),
         routes: [
           McRoutePage(
-            name: AppRoutes.myProperties,
-            path: 'my-properties',
-            child: MyPropertiesScreen(),
-          ),
+              name: AppRoutes.myProperties,
+              path: 'my-properties',
+              child: MyPropertiesScreen(),
+              routes: [
+                McRoutePage(
+                  name: AppRoutes.viewMyProperty,
+                  path: ':$kPropertyId/view-properties',
+                  builder: (context, state) {
+                    var userProperty = state.extra as UserProperty;
+                    return ViewMyProperty(
+                      userProperty: userProperty,
+                    );
+                  },
+                  routes: [],
+                ),
+              ]),
         ],
       ),
 

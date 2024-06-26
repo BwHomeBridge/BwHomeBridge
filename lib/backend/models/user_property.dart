@@ -1,4 +1,5 @@
 import 'package:bw_home_bridge/backend/helper_classes/lat_lng_converter.dart';
+import 'package:bw_home_bridge/backend/models/rent_payment.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -18,6 +19,8 @@ class UserProperty with _$UserProperty {
     String? listingType,
     String? propertyType,
     bool? isForSale,
+    required List<RentPayment> rentPaymentHistory,
+    required DateTime nextRentDueDate,
   }) = _UserProperty;
 
   factory UserProperty.fromJson(Map<String, dynamic> json) =>
