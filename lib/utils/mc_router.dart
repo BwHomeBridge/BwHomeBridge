@@ -36,7 +36,7 @@ class McRouter {
   static GoRouter router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     debugLogDiagnostics: true,
-    // initialLocation: '/dashboard',
+    initialLocation: '/home',
     redirect: (context, state) {
       return null;
     },
@@ -121,7 +121,9 @@ class McRouter {
                 context.read<HomeCubit>().state.maybeWhen(
                       loaded: (properties, viewType) {
                         property = properties.firstWhereOrNull(
-                          (p) => p.id.toString() == state.pathParameters[kPropertyId],
+                          (p) =>
+                              p.id.toString() ==
+                              state.pathParameters[kPropertyId],
                         );
                       },
                       orElse: () {},

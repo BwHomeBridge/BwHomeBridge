@@ -4,6 +4,7 @@ import 'package:bw_home_bridge/ui/screens/view_property/view_property_screen.dar
 import 'package:bw_home_bridge/ui/widgets/mc_text.dart';
 import 'package:bw_home_bridge/utils/app_routes.dart';
 import 'package:bw_home_bridge/utils/constants.dart';
+import 'package:bw_home_bridge/utils/extentions/price_formating.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +92,7 @@ class MapCard extends StatelessWidget {
                     color: McColors.white,
                   ),
                   McText.body(
-                    'P ${property.price}',
+                    property.price,
                     color: McColors.white,
                   )
                 ],

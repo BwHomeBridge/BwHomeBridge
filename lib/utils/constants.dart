@@ -10,3 +10,5 @@ const String kTendersSubTitle =
 
 const String kFaqSubTitle =
     'These are the questions we hear a lot and you\'ll find the answers below. but if you have others, please don\'t hesitate to contact us- we\'re here to help.';
+
+const double kMaxPrice = 100000000;

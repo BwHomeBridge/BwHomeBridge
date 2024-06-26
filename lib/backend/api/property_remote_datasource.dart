@@ -1,5 +1,3 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:retrofit/http.dart';
@@ -27,20 +25,20 @@ abstract class PropertyRemoteDatasource {
   @Query('property_type')
   Future<List<Property>> getProperties({
     String? location,
-      double? minPrice,
-      double? maxPrice,
-      int? minBedrooms,
-      int? maxBedrooms,
-      String? listingType,
-      String? propertyType
-      });
+    double? minPrice,
+    double? maxPrice,
+    int? minBedrooms,
+    int? maxBedrooms,
+    String? listingType,
+    String? propertyType,
+  });
 
   @GET('/properties/{id}')
   Future<Property> getProperty(@Path('id') String id);
 
   @PUT('/properties/{id}')
-  Future<Property> updateProperty(@Path('id') String id,
-      @Body() Property property);
+  Future<Property> updateProperty(
+      @Path('id') String id, @Body() Property property);
 
   @DELETE('/properties/{id}')
   Future<Property> deleteProperty(@Path('id') String id);

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:bw_home_bridge/backend/di/di.dart';
+import 'package:bw_home_bridge/backend/helper_classes/project_filters.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/backend/repositories/property_repo.dart';
 import 'package:bw_home_bridge/backend/serivces/home_map_service.dart';
@@ -14,25 +15,23 @@ class HomeCubit extends Cubit<HomeState> {
   final PropertyRepository repository = getInstance<PropertyRepository>();
   HomeMapService homeMapService = HomeMapService();
 
+  ProjectFilters projectFilters = ProjectFilters();
+
   Set<Marker> propertyMakers = <Marker>{};
 
   HomeCubit() : super(const HomeState.initial());
 
-  Future<void> searchProperties({
-    String? location,
-    double? minPrice,
-    double? maxPrice,
-    int? minBedrooms,
-    int? maxBedrooms,
-  }) async {
+  Future<void> searchProperties() async {
     try {
       emit(const HomeState.loading());
       final properties = await repository.searchProperties(
-        location: location,
-        minPrice: minPrice,
-        maxPrice: maxPrice,
-        minBedrooms: minBedrooms,
-        maxBedrooms: maxBedrooms,
+        location: projectFilters.location,
+        minPrice: projectFilters.minPrice,
+        maxPrice: projectFilters.maxPrice,
+        minBedrooms: projectFilters.minBedrooms,
+        maxBedrooms: projectFilters.maxBedrooms,
+        propertyType: projectFilters.getPropertyType,
+        listingType: projectFilters.getListingType,
       );
 
       generateMarkers(properties);

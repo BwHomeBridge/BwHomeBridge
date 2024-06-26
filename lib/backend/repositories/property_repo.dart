@@ -14,21 +14,24 @@ class PropertyRepository {
     double? maxPrice,
     int? minBedrooms,
     int? maxBedrooms,
+    String? propertyType,
+    String? listingType,
   }) async {
-   try {
-     final properties = await _propertyRemoteDatasource.getProperties(
-       location: location,
-       minPrice: minPrice,
-       maxPrice: maxPrice,
-       minBedrooms: minBedrooms,
-       maxBedrooms: maxBedrooms,
-     );
-     logger.i(properties);
-     return properties;
-   }
-    catch (e) {
-     logger.e(e);
-     return [];
+    try {
+      final properties = await _propertyRemoteDatasource.getProperties(
+        location: location,
+        minPrice: minPrice,
+        maxPrice: maxPrice,
+        minBedrooms: minBedrooms,
+        maxBedrooms: maxBedrooms,
+        propertyType: propertyType,
+        listingType: listingType,
+      );
+
+      return properties;
+    } catch (e) {
+      logger.e(e);
+      return [];
     }
   }
 }

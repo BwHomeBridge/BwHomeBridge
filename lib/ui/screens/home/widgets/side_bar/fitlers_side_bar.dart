@@ -1,8 +1,6 @@
+import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
 import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/location_selector.dart';
-import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/num_bathrooms_selector.dart';
-import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/num_bedrooms_selector.dart';
 import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/price_range_selector.dart';
-import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/property_size_selector.dart';
 import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/property_type_selector.dart';
 import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/widgets/listing_type_selector.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_button.dart';
@@ -10,6 +8,7 @@ import 'package:bw_home_bridge/ui/widgets/mc_v_spacer.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:bw_home_bridge/utils/mc_dialogs.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> showPropertyFilterSideBar(BuildContext context) async {
   return McDialogs.leftSideBarDialog(
@@ -40,9 +39,9 @@ Future<void> showPropertyFilterSideBar(BuildContext context) async {
                 McVSpacer(),
                 PriceRangeSelector(),
 
-                NumBedroomsSelector(),
-                NumBathroomsSelector(),
-                PropertySizeSelector(),
+                // NumBedroomsSelector(),
+                // NumBathroomsSelector(),
+                // PropertySizeSelector(),
 
                 McVSpacer(50)
               ],
@@ -63,6 +62,7 @@ Future<void> showPropertyFilterSideBar(BuildContext context) async {
                     'Show properties',
                     // expanded: true,
                     onPressed: () {
+                      context.read<HomeCubit>().searchProperties();
                       Navigator.pop(context);
                     },
                   ),

@@ -7,7 +7,9 @@ import '../../utils/debugBro.dart';
 class ApiInterceptor extends Interceptor {
   @override
   Future<dynamic> onRequest(RequestOptions options, handler) async {
-    logger.e(options.uri);
+    // logger.e(options.uri);
+    print(
+        '[${options.method}] ${options.uri} QUERY: ${options.queryParameters}');
     try {
       // options = options.copyWith(
       //   headers: {

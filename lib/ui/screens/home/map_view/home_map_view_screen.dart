@@ -1,9 +1,11 @@
 import 'package:bw_home_bridge/backend/cubits/home/home_cubit.dart';
 import 'package:bw_home_bridge/backend/models/property.dart';
 import 'package:bw_home_bridge/ui/screens/home/map_view/widgets/map_card.dart';
+import 'package:bw_home_bridge/ui/screens/home/widgets/side_bar/fitlers_side_bar.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_icon_button.dart';
 import 'package:bw_home_bridge/ui/widgets/mc_map.dart';
 import 'package:bw_home_bridge/utils/enums.dart';
+import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -33,6 +35,22 @@ class HomeMapViewScreen extends StatelessWidget {
           },
         ),
 
+        Positioned(
+          right: 60,
+          top: 20,
+          child: CircleAvatar(
+            backgroundColor: McColors.black,
+            child: IconButton(
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                showPropertyFilterSideBar(context);
+              },
+            ),
+          ),
+        ),
         Positioned(
           right: 20,
           top: 20,
