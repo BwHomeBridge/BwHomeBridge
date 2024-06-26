@@ -1,4 +1,5 @@
 import 'package:bw_home_bridge/utils/app_routes.dart';
+import 'package:bw_home_bridge/utils/constants.dart';
 import 'package:bw_home_bridge/utils/mc_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,7 @@ class _BaseScreenState extends State<BaseScreen> {
     //   _selectedIndex = 1;
     // }
     if (AppRoutes.isActiveRouteName(context, AppRoutes.dashboard)) {
-      _selectedIndex = 2;
+      _selectedIndex = 1;
     }
     // if (AppRoutes.isActiveRouteName(context, AppRoutes.dashboard)) {
     //   _selectedIndex = 3;
@@ -43,7 +44,7 @@ class _BaseScreenState extends State<BaseScreen> {
       case 0:
         AppRoutes.openNamed(context, AppRoutes.home);
         break;
-      case 2:
+      case 1:
         AppRoutes.openNamed(context, AppRoutes.dashboard);
         break;
       default:
@@ -64,59 +65,53 @@ class _BaseScreenState extends State<BaseScreen> {
           ],
         ),
       ),
-      body: widget.child,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _onItemTapped(2);
-        },
-        child: Icon(
-          Icons.dashboard_outlined,
-          color: Colors.white,
-        ),
-        backgroundColor:
-            _selectedIndex == 2 ? McColors.primary : McColors.black,
-        shape: CircleBorder(),
-        elevation: 1,
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomAppBar(
-        height: 60,
-        padding: EdgeInsets.symmetric(),
-        shape: CircularNotchedRectangle(),
-        notchMargin: 6.0,
-        child: BottomNavigationBar(
-          elevation: 30,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+      body: Stack(
+        children: [
+          widget.child,
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.all(kSpacing),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(255, 199, 186, 186),
+                      spreadRadius: -10,
+                      blurRadius: 20,
+                    ),
+                  ],
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30),
+                  child: BottomNavigationBar(
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                    items: const <BottomNavigationBarItem>[
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.home),
+                        label: 'Home',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.dashboard),
+                        label: 'Dash',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.person),
+                        label: 'Profile',
+                      ),
+                    ],
+                    currentIndex: _selectedIndex,
+                    selectedItemColor: McColors.primary,
+                    onTap: _onItemTapped,
+                  ),
+                ),
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_2_outlined),
-              label: 'profile',
-            ),
-
-            /// Dash
-            BottomNavigationBarItem(
-              icon: SizedBox.shrink(),
-              activeIcon: SizedBox.shrink(),
-              label: '',
-            ),
-            //
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_2_outlined),
-              label: 'profile',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_2_outlined),
-              label: 'Profile',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          unselectedItemColor: McColors.black.withOpacity(.7),
-          onTap: _onItemTapped,
-          type: BottomNavigationBarType.fixed,
-        ),
+          )
+        ],
       ),
     );
 

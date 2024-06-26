@@ -40,8 +40,7 @@ class ViewPropertyScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: CachedNetworkImageProvider(
-                                property.photo),
+                            image: CachedNetworkImageProvider(property.photo),
                           ),
                         ),
                         child: Column(
@@ -95,6 +94,7 @@ class ViewPropertyScreen extends StatelessWidget {
                           McMap(
                             initialCameraPosition: CameraPosition(
                               target: property.location,
+                              zoom: 14,
                             ),
                             markers: <Marker>{
                               Marker(
